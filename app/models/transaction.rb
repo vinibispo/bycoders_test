@@ -1,5 +1,5 @@
 class Transaction < ApplicationRecord
-  belongs_to :store
+  belongs_to :store, class_name: '::Store::Record'
   validates :date, presence: true
   validates :value, presence: true
   validates :cpf, presence: true
