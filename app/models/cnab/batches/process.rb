@@ -2,10 +2,10 @@ module Cnab
   class Batches::Process < ::Micro::Case
     attribute :file_path, validates: { presence: true }
     ToStoreId = lambda do |item|
-      store = Store.find_by(name: item.store_name)
+      store = Store::Record.find_by(name: item.store_name)
       return store.id if store.present?
 
-      Store.create!(name: item.store_name, owner_name: item.store_owner).id
+      Store::Record.create!(name: item.store_name, owner_name: item.store_owner).id
     end
 
     ToModel = lambda do |item|

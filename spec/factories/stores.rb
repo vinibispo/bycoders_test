@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :store do
+  factory :store, class: '::Store::Record' do
     name { "MyString" }
     owner_name { "MyString" }
-    balance { "9.99" }
+    value { "9.99" }
   end
 end
