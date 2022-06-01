@@ -7,6 +7,14 @@ RSpec.describe Cnab::Process do
       expect(result.failure?).to be true
       expect(result.type).to eq(:invalid_attributes)
     end
+
+    it 'should return failure when attribute is a object' do
+      cnab = Class.new
+      result = described_class.call(cnab:)
+
+      expect(result.failure?).to be true
+      expect(result.type).to eq(:error)
+    end
   end
 
   describe 'success' do
