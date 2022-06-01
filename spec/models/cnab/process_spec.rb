@@ -1,3 +1,4 @@
+require 'rails_helper'
 RSpec.describe Cnab::Process do
   describe 'failures' do
     it 'should return failure when there is no attributes' do
