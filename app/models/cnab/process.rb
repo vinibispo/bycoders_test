@@ -37,12 +37,12 @@ module Cnab
     def call!
       kind = cnab[0].to_i
       date = cnab[DATE_START_INDEX..DATE_END_INDEX]
-      value = cnab[VALUE_START_INDEX..VALUE_END_INDEX]
+      value = cnab[VALUE_START_INDEX..VALUE_END_INDEX].to_f
       cpf = cnab[CPF_START_INDEX..CPF_END_INDEX]
       card = cnab[CARD_START_INDEX..CARD_END_INDEX]
       hour = cnab[HOUR_START_INDEX..HOUR_END_INDEX]
-      store_owner = cnab[STORE_OWNER_START_INDEX..STORE_OWNER_END_INDEX]
-      store_name = cnab[STORE_NAME_START_INDEX..STORE_NAME_END_INDEX]
+      store_owner = cnab[STORE_OWNER_START_INDEX..STORE_OWNER_END_INDEX].strip
+      store_name = cnab[STORE_NAME_START_INDEX..STORE_NAME_END_INDEX].strip
       cnab_item = Item.new(kind:, date:, value:, cpf:, card:, hour:, store_owner:, store_name:)
       Success :cnab_processed, result:  { cnab: cnab_item }
     rescue => e
