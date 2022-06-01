@@ -83,6 +83,7 @@ GEM
       xpath (~> 3.2)
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     crass (1.0.6)
     cssbundling-rails (1.1.0)
       railties (>= 6.0.0)
@@ -178,6 +179,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.6.0)
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -207,6 +209,10 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
+    sidekiq (6.4.2)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
     strscan (3.0.3)
@@ -256,9 +262,11 @@ DEPENDENCIES
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.3)
+  redis (~> 4.0)
   rspec-rails (= 6.0.0.rc1)
   selenium-webdriver
   shoulda-matchers (~> 5.0)
+  sidekiq
   stimulus-rails
   turbo-rails
   tzinfo-data
